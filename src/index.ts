@@ -69,6 +69,9 @@ function registerPartials(partialsGlob: string): void {
 
 Handlebars.registerHelper('parameterType', utils.solTypeToTsType.bind(utils, ParamKind.Input, args.backend));
 Handlebars.registerHelper('returnType', utils.solTypeToTsType.bind(utils, ParamKind.Output, args.backend));
+Handlebars.registerHelper('jsonStringify', (value: any) => {
+  return JSON.stringify(value)
+})
 if (args.partials) {
     registerPartials(args.partials);
 }
@@ -141,6 +144,7 @@ for (const abiFileName of abiFileNames) {
     const eventAbis = ABI.filter((abi: AbiDefinition) => abi.type === ABI_TYPE_EVENT) as EventAbi[];
 
     const contextData = {
+        ABI: ABI,
         contractName: namedContent.name,
         ctor,
         methods: methodsData,

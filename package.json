@@ -32,6 +32,7 @@
     "dependencies": {
         "@0xproject/typescript-typings": "^1.0.5",
         "@0xproject/utils": "^1.0.7",
+        "@types/lodash": "^4.14.116",
         "chalk": "^2.3.0",
         "ethereum-types": "^1.0.5",
         "glob": "^7.1.2",

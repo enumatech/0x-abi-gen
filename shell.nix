@@ -1,13 +1,9 @@
 with (import <nixpkgs> {});
 
 mkShell {
-  buildInputs = let
-    nodePackage = nodejs-8_x;
-  in [
-    nodePackage.passthru.python
-    nodePackage
-    libudev
-    libusb
+  buildInputs = [
+    nodejs-8_x.passthru.python
+    nodejs-8_x
     yarn
   ];
 
